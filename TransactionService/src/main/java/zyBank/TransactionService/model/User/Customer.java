@@ -17,6 +17,7 @@ public class Customer extends User{
 
     private String name;
     private String lastname;
+    @Column(unique = true)
     private String idNational;
     private String phone;
     @Embedded
