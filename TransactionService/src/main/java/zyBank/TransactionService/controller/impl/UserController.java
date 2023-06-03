@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import zyBank.TransactionService.controller.dto.UserCredentialsDTO;
 import zyBank.TransactionService.controller.interfaces.IUserController;
 import zyBank.TransactionService.model.User.Admin;
 import zyBank.TransactionService.model.User.Customer;
@@ -72,14 +73,14 @@ public class UserController implements IUserController {
 
 
     @PostMapping("/users/login")
-    public ResponseEntity<String> login(@RequestParam String username, @RequestParam String password) {
+    public ResponseEntity<User> login(@RequestBody UserCredentialsDTO userCredentials) {
         List<User> users = userRepository.findAll();
         for (User user : users) {
-            if (user.getUsername().equals(username) && user.getPassword().equals(password)) {
-                return ResponseEntity.ok("Inicio de sesión exitoso");
+            if (user.getEmail().equals(userCredentials.getEmail()) && user.getPassword().equals(userCredentials.getPassword())) {
+                return ResponseEntity.ok(user);
             }
         }
-        return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Credenciales inválidas");
+        return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(null);
     }
 
 }
