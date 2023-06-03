@@ -8,7 +8,6 @@ import zyBank.TransactionService.controller.dto.AccountBalanceDTO;
 import zyBank.TransactionService.controller.interfaces.IAccountController;
 import zyBank.TransactionService.embeddables.Money;
 import zyBank.TransactionService.model.Account.Account;
-import zyBank.TransactionService.model.Account.CheckingAccount;
 import zyBank.TransactionService.repository.AccountsRepository.AccountRepository;
 import zyBank.TransactionService.service.interfaces.IServiceAccount;
 
@@ -47,8 +46,8 @@ public class AccountController implements IAccountController {
     @Override
     @PostMapping("/accounts/new-account")
     @ResponseStatus(HttpStatus.CREATED)
-    public Account createAccount(@RequestBody @Valid CheckingAccount checkingAccount) {
-        return serviceAccount.saveAccount(checkingAccount);
+    public Account createAccount(@RequestBody @Valid Account account) {
+        return serviceAccount.saveAccount(account);
     }
 
     @Override

@@ -5,8 +5,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 import zyBank.TransactionService.controller.dto.AccountBalanceDTO;
-import zyBank.TransactionService.model.Account.CheckingAccount;
-import zyBank.TransactionService.repository.AccountsRepository.CheckingAccountRepository;
 import zyBank.TransactionService.repository.UsersRepository.CustomerRepository;
 import zyBank.TransactionService.service.interfaces.IServiceAccount;
 import zyBank.TransactionService.embeddables.Money;
@@ -22,8 +20,6 @@ public class ServiceAccount implements IServiceAccount {
     AccountRepository accountRepository;
     @Autowired
     CustomerRepository customerRepository;
-    @Autowired
-    CheckingAccountRepository checkingAccountRepository;
 
 
     @Override
@@ -54,24 +50,24 @@ public class ServiceAccount implements IServiceAccount {
     }
 
     @Override
-    public Account saveAccount(CheckingAccount checkingAccount) {
-        System.out.println(checkingAccount);
-        if (checkingAccount.getCustomer() == null) {
+    public Account saveAccount(Account account) {
+        System.out.println(account);
+        if (account.getCustomer() == null) {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Customer information is missing");
         }
 
-        Customer customer = customerRepository.findById(checkingAccount.getCustomer().getId())
+        Customer customer = customerRepository.findById(account.getCustomer().getId())
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Customer not found"));
 
         Money balance;
-        if (checkingAccount.getBalance().getAmount().compareTo(checkingAccount.getMinimumBalance().getAmount()) < 0) {
+        if (account.getBalance().getAmount().compareTo(account.getMinimumBalance().getAmount()) < 0) {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "The balance must be greater than or equal to the minimum required balance of 100 USD");
         } else {
-            balance = new Money(checkingAccount.getBalance().getAmount());
+            balance = new Money(account.getBalance().getAmount());
         }
 
-        CheckingAccount newAccountToSave = new CheckingAccount(balance, customer);
-        return checkingAccountRepository.save(newAccountToSave);
+        Account newAccountToSave = new Account(balance, customer);
+        return accountRepository.save(newAccountToSave);
     }
 
     @Override

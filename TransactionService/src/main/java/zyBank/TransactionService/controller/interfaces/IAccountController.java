@@ -3,7 +3,6 @@ package zyBank.TransactionService.controller.interfaces;
 import zyBank.TransactionService.controller.dto.AccountBalanceDTO;
 import zyBank.TransactionService.embeddables.Money;
 import zyBank.TransactionService.model.Account.Account;
-import zyBank.TransactionService.model.Account.CheckingAccount;
 
 import java.util.List;
 
@@ -14,7 +13,7 @@ public interface IAccountController {
 
     Money getAccountBalance(String number);
 
-    Account createAccount(CheckingAccount checkingAccount);
+    Account createAccount(Account account);
 
     Account updateAccountBalance(String number, AccountBalanceDTO accountBalanceDTO);
 

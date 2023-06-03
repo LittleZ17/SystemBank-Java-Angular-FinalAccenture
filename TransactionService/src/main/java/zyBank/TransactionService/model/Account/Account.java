@@ -14,7 +14,7 @@ import java.util.Random;
 @Data
 @NoArgsConstructor
 @Inheritance(strategy = InheritanceType.JOINED)
-public abstract class Account {
+public class Account {
 
     @Id
     private String number;
