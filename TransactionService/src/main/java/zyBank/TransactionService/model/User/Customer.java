@@ -27,7 +27,8 @@ public class Customer extends User{
     @JsonIgnore
     private List<Account> accountList;
 
-    public Customer(String name, String lastname, String idNational, String phone, Address homeAddress) {
+    public Customer(String email, String password, String name, String lastname, String idNational, String phone, Address homeAddress) {
+        super( email, password);
         this.name = name;
         this.lastname = lastname;
         this.idNational = idNational;

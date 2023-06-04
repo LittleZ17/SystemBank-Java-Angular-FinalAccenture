@@ -14,16 +14,15 @@ public abstract class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    @Column(unique = true)
-    private String username;
-    private String password;
+   /* @Column(unique = true)
+    private String username;*/
     @Column(unique = true)
     @Email
     private String email;
+    private String password;
 
-    public User(String username, String password, String email) {
-        this.username = username;
-        this.password = password;
+    public User(String email, String password) {
         this.email = email;
+        this.password = password;
     }
 }

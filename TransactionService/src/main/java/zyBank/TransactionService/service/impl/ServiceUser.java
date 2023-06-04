@@ -17,35 +17,35 @@ public class ServiceUser implements IServiceUser {
 
     @Autowired
     UserRepository userRepository;
+
     @Override
     public User getUserById(Integer number) {
         Optional<User> userOptional = userRepository.findById(number);
-        if(userOptional.isEmpty()){
+        if (userOptional.isEmpty()) {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "UserID not found!");
         }
         return userOptional.get();
     }
 
 
-   @Override
+    @Override
     public Admin saveAdmin(Admin admin) {
-       System.out.println(admin);
-        if(userRepository.findById(admin.getId()).isPresent()){
+        System.out.println(admin);
+        if (userRepository.findById(admin.getId()).isPresent()) {
             throw new RuntimeException("This user Admin exist!");
-        }else if(!admin.getEmail().matches("@")){
+        } else if (!admin.getEmail().matches("@")) {
             throw new RuntimeException("The mail needs a format email");
-        }else {
+        } else {
             return userRepository.save(admin);
         }
     }
 
     @Override
     public Customer saveCostumer(Customer costumer) {
-        if(userRepository.findById(costumer.getId()).isPresent()){
+        if (userRepository.findById(costumer.getId()).isPresent()) {
             throw new RuntimeException("This user exist!");
-        }else {
+        } else {
             return userRepository.save(costumer);
         }
     }
-
 }

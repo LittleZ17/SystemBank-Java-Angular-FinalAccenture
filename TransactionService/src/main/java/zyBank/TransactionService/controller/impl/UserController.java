@@ -1,10 +1,13 @@
 package zyBank.TransactionService.controller.impl;
 
+import jakarta.validation.Path;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 import zyBank.TransactionService.controller.dto.UserCredentialsDTO;
 import zyBank.TransactionService.controller.interfaces.IUserController;
 import zyBank.TransactionService.model.User.Admin;
@@ -15,6 +18,9 @@ import zyBank.TransactionService.repository.UsersRepository.CustomerRepository;
 import zyBank.TransactionService.repository.UsersRepository.UserRepository;
 import zyBank.TransactionService.service.interfaces.IServiceUser;
 
+
+import java.io.IOException;
+import java.nio.file.Paths;
 import java.util.List;
 
 @RestController
@@ -82,5 +88,4 @@ public class UserController implements IUserController {
         }
         return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(null);
     }
-
 }
