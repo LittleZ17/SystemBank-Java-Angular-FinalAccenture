@@ -2,14 +2,18 @@ package zyBank.TransactionService.service.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+
 import org.springframework.web.server.ResponseStatusException;
+import zyBank.TransactionService.controller.dto.UserCredentialsDTO;
 import zyBank.TransactionService.model.User.Admin;
 import zyBank.TransactionService.model.User.Customer;
 import zyBank.TransactionService.service.interfaces.IServiceUser;
 import zyBank.TransactionService.model.User.User;
 import zyBank.TransactionService.repository.UsersRepository.UserRepository;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -47,5 +51,14 @@ public class ServiceUser implements IServiceUser {
         } else {
             return userRepository.save(costumer);
         }
+    }
+   public ResponseEntity<User> login(UserCredentialsDTO userCredentials) {
+        List<User> users = userRepository.findAll();
+        for (User user : users) {
+            if (user.getEmail().equals(userCredentials.getEmail()) && user.getPassword().equals(userCredentials.getPassword())) {
+                return ResponseEntity.ok(user);
+            }
+        }
+        return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(null);
     }
 }

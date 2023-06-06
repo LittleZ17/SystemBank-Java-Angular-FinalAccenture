@@ -1,0 +1,179 @@
+.bg {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+}
+
+.bg img {
+  position: absolute;
+}
+
+.bg .A {
+  top: -5%;
+  left: 60%;
+  transform: rotate(-15deg);
+}
+
+.bg .B {
+  top: 30%;
+  right: -10%;
+  transform: rotate(10deg);
+}
+
+.bg .C {
+  bottom: -5%;
+  left: 0;
+  transform: rotate(15deg);
+}
+
+.bg .D {
+  bottom: 5%;
+  right: -10%;
+  transform: rotate(-10deg);
+}
+.bg .E {
+  bottom: 18%;
+  left: 0;
+  transform: rotate(-10deg);
+}
+.bg .F {
+  top: 5%;
+  right: 65%;
+  transform: rotate(-10deg);
+}
+.bg .G {
+  top: 27%;
+  right: 45%;
+}
+.bg .H {
+  top: -10%;
+  left: 15%;
+}
+
+.box {
+  width: 100vw;
+  height: 100vh;
+  flex-direction: column;
+  position: relative;
+  z-index: 1;
+}
+
+.logo {
+  background-color: var(--bg-logo);
+  width: 80%;
+  border: var(--border);
+  box-shadow: var(--shadow-blue);
+  border-radius: 20px;
+  padding: 5%;
+}
+
+.logo h1 {
+  font-size: 5rem;
+  text-align: end;
+  margin-top: 8%;
+  color: var(--c-orange);
+}
+
+.home-img {
+  margin: 15% 0;
+}
+.oval {
+  width: 60%;
+  height: 55px;
+  border-radius: 35px;
+  box-shadow: var(--shadow-blue);
+  background-color: var(--c-white);
+}
+.login-btn {
+  background-color: var(--c-blue);
+  width: 100px;
+  height: 100px;
+  border: none;
+  border-radius: 50%;
+  font-size: 70px;
+  
+}
+.login-btn:hover {
+    background-color: var(--c-orange);
+  }
+
+@media only screen and (min-width: 768px) {
+  .bg {
+    width: 80vw;
+  }
+  .bg .A {
+    top: 0;
+    left: 60%;
+    transform: rotate(-10deg);
+  }
+  .bg .B {
+    top: 10%;
+    left: 0%;
+  }
+  .bg .C {
+    top: 80%;
+    left: 0;
+    transform: rotate(-10deg);
+  }
+  .bg .D {
+    top: 80%;
+    right: -10%;
+    transform: rotate(-10deg);
+  }
+  .bg .E {
+    top: 75%;
+    left: 35%;
+  }
+  .bg .F {
+    top: 55%;
+    left: 15%;
+  }
+  .bg .G {
+    top: 10%;
+    left: 90%;
+  }
+
+  .box {
+    max-height: 100vh;
+  }
+  .logo {
+    padding: 1%;
+    width: 50vw;
+  }
+  .logo h1 {
+    margin-top: 0;
+  }
+  .home-img {
+    max-height: 50vh;
+    margin: 5% 0;
+  }
+  .oval {
+    width: 40%;
+  }
+}
+
+@media only screen and (min-width: 992px) {
+  .logo {
+    padding: 1%;
+    width: 40vw;
+  }
+  .logo h6 {
+    margin-top: 0;
+    font-size: 3rem;
+  }
+  .logo h2 {
+    margin-top: 0;
+    font-size: 5rem;
+  }
+  .logo h1 {
+    margin-top: 0;
+    font-size: 8rem;
+  }
+  .home-img {
+    max-height: 50vh;
+    margin: 2% 0;
+  }
+  .oval {
+    width: 25%;
+  }
+}

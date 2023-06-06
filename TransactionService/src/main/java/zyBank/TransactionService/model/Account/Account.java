@@ -40,6 +40,12 @@ public class Account {
         this.customer = customer;
     }
 
+    public Account(String number, Money balance, Customer customer) {
+        this.number = number;
+        this.balance = balance;
+        this.customer = customer;
+    }
+
     private String generateAccountNumber() {
         String randomDigits = generateRandomDigits(4);
         return "ES-" + randomDigits;

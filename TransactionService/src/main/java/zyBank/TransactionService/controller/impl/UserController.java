@@ -19,8 +19,6 @@ import zyBank.TransactionService.repository.UsersRepository.UserRepository;
 import zyBank.TransactionService.service.interfaces.IServiceUser;
 
 
-import java.io.IOException;
-import java.nio.file.Paths;
 import java.util.List;
 
 @RestController
@@ -79,13 +77,8 @@ public class UserController implements IUserController {
 
 
     @PostMapping("/users/login")
+    @ResponseStatus(HttpStatus.OK)
     public ResponseEntity<User> login(@RequestBody UserCredentialsDTO userCredentials) {
-        List<User> users = userRepository.findAll();
-        for (User user : users) {
-            if (user.getEmail().equals(userCredentials.getEmail()) && user.getPassword().equals(userCredentials.getPassword())) {
-                return ResponseEntity.ok(user);
-            }
-        }
-        return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(null);
+        return  serviceUser.login(userCredentials);
     }
 }

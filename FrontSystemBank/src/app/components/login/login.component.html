@@ -1,0 +1,28 @@
+<body class="box-ct">
+    <h6>Access</h6>
+    <h2>Login</h2>
+
+    <button (click)="getCustomers()">GET CUSTOMERS</button>
+    <form (ngSubmit)="onSubmit()" [formGroup]="loginForm" class="form-column">
+        <label>Email
+          <input type="email" placeholder="" formControlName="email"/>
+          <p class="error-msg" *ngIf="emailInput.invalid && emailInput.touched">
+            Please, intro your email.
+          </p>
+        </label>
+        <label>Password
+            <input type="password" placeholder="" formControlName="password" />
+            <p class="error-msg" *ngIf="passwordInput.invalid && passwordInput.touched">
+                Password must be at least 8 characters long.
+              </p>
+          </label>
+        <button type="submit" [disabled]="loginForm.invalid">Submit</button>
+      </form>
+      <div class="message" *ngIf="formSubmitted && successLogin">
+        Thank you! Your form is send!
+      </div>
+      <div class="message" *ngIf="errorLogin">
+        Invalid credentials. Please try again.
+      </div>
+  
+</body>
