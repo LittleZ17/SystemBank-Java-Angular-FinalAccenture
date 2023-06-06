@@ -1,0 +1,26 @@
+.box-login{
+    flex-direction: column;
+}
+.title{
+    width: 70vw;
+}
+.form-login{
+    width: 70vw;
+    height: 30%;
+    box-shadow: var(--shadow-blue);
+    border-radius: 20px;
+    margin: 8% 0;
+    flex-direction: column;
+    padding:10%;
+}
+label{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    font-size: 1.2rem;
+    margin-bottom: 20%;
+}
+input{
+    height: 30px;
+}
+

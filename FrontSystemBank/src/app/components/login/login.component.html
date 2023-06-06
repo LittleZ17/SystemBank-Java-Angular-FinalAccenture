@@ -1,28 +1,31 @@
-<body class="box-ct">
+<body class="box-ct box box-login">
+  <div class="title"> 
     <h6>Access</h6>
     <h2>Login</h2>
-
+  </div>
+    
     <button (click)="getCustomers()">GET CUSTOMERS</button>
-    <form (ngSubmit)="onSubmit()" [formGroup]="loginForm" class="form-column">
-        <label>Email
+    <form (ngSubmit)="onSubmit()" [formGroup]="loginForm" class="box-ct form-login">
+        <label class=>Email
           <input type="email" placeholder="" formControlName="email"/>
           <p class="error-msg" *ngIf="emailInput.invalid && emailInput.touched">
             Please, intro your email.
           </p>
         </label>
-        <label>Password
+        <label class=>Password
             <input type="password" placeholder="" formControlName="password" />
             <p class="error-msg" *ngIf="passwordInput.invalid && passwordInput.touched">
                 Password must be at least 8 characters long.
               </p>
           </label>
         <button type="submit" [disabled]="loginForm.invalid">Submit</button>
+        <div class="message" *ngIf="formSubmitted && successLogin">
+          Thank you! Your form is send!
+        </div>
+        <div class="message" *ngIf="errorLogin">
+          Invalid credentials. Please try again.
+        </div>
       </form>
-      <div class="message" *ngIf="formSubmitted && successLogin">
-        Thank you! Your form is send!
-      </div>
-      <div class="message" *ngIf="errorLogin">
-        Invalid credentials. Please try again.
-      </div>
-  
+      <img src="../../../assets/png/login1.png" alt="">
+     
 </body>

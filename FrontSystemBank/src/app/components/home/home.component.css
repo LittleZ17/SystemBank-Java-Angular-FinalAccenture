@@ -50,9 +50,7 @@
   left: 15%;
 }
 
-.box {
-  width: 100vw;
-  height: 100vh;
+.box-home {
   flex-direction: column;
   position: relative;
   z-index: 1;
