@@ -12,6 +12,7 @@ import zyBank.TransactionService.model.Account.Account;
 import zyBank.TransactionService.model.User.Customer;
 import zyBank.TransactionService.repository.AccountsRepository.AccountRepository;
 
+import java.util.List;
 import java.util.Optional;
 @Service
 public class ServiceAccount implements IServiceAccount {
@@ -21,6 +22,10 @@ public class ServiceAccount implements IServiceAccount {
     @Autowired
     CustomerRepository customerRepository;
 
+    @Override
+    public List<Account> getAccountsByCustomerId(Integer customerId) {
+        return accountRepository.findByCustomerId(customerId);
+    }
 
     @Override
     public Account getAccountById(String number) {

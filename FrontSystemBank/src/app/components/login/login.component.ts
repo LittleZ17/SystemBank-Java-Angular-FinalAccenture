@@ -17,12 +17,12 @@ export class LoginComponent {
   passwordInput: FormControl;
 
   formSubmitted: boolean = false;
-  profileData: any;
+  profileData!: number;
   successLogin: boolean = false;
   errorLogin: boolean= false;
   
 
-  constructor(private userRequestService: UserServiceService, private router: Router){
+  constructor(private requestService: UserServiceService, private router: Router){
     this.emailInput = new FormControl("",[Validators.required, Validators.email]);
     this.passwordInput = new FormControl("", [Validators.required, Validators.minLength(8)]);
     this.loginForm = new FormGroup({
@@ -33,7 +33,7 @@ export class LoginComponent {
 
 
   getCustomers(): void {
-    this.userRequestService.getCustomers().subscribe(
+    this.requestService.getCustomers().subscribe(
       {
         next: (data) => {
           console.log(data);
@@ -48,18 +48,23 @@ export class LoginComponent {
       email: this.emailInput.value,
       password: this.passwordInput.value
     }
-    this.userRequestService.postLogin(newLogin).subscribe({
+    this.requestService.postLogin(newLogin).subscribe({
   
       next:(data) =>{
-        console.log(data);
-        this.profileData = data;
-        this.router.navigate(['/profile', data.id], { queryParams: { profileData: JSON.stringify(data) } });
+        console.log(data.id);
+        this.profileData = data.id;
         this.successLogin = true;
+        setTimeout(() => {
+          this.router.navigate(['/account-info', data.id], { queryParams: { profileData: JSON.stringify(data.id) } });
+        }, 1300);        
       },
       error: (error) => {
         console.error(error)
         this.loginForm.reset();
         this.errorLogin = true;
+        setTimeout(() => {
+          this.errorLogin = false;
+        }, 1300); 
       }
     })
   }

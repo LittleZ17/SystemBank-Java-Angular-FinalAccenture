@@ -89,7 +89,6 @@
   border: none;
   border-radius: 50%;
   font-size: 70px;
-  
 }
 .login-btn:hover {
     background-color: var(--c-orange);

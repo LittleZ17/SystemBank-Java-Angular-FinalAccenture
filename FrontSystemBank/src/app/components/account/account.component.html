@@ -1,0 +1,11 @@
+<div class="box-ct box box-account" *ngIf="infoAccount">
+
+    <div class="title"> 
+        <h6>Account Information</h6>
+        <h2>Total Balance</h2>
+    </div>
+    <article>
+        <h2>{{infoAccount.balance.amount }}</h2><span>{{infoAccount.balance.currency }}</span>
+    </article>
+    
+</div>

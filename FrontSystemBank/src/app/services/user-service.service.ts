@@ -19,8 +19,8 @@ export class UserServiceService {
     return this.http.get<any>(`${this.API_URL}/customers`)
   }
 
-  getCustomerById(): Observable<any>{
-    return this.http.get<any>(`${this.API_URL}/customers/:id`)
+  getCustomerById(id: any): Observable<any>{
+    return this.http.get<any>(`${this.API_URL}/:id`)
   }
 
   postLogin(body:any): Observable<any>{

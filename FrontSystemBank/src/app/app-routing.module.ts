@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
 import { ProfileComponent } from './components/profile/profile.component';
+import { AccountComponent } from './components/account/account.component';
 
 
 const routes: Routes = [
@@ -18,10 +19,10 @@ const routes: Routes = [
   //   path: "register", // URL with params
   //   component: RegisterComponent,
   // },
-  // {
-  //   path: "info", // URL with params
-  //   component: InfoComponent,
-  // },
+  {
+    path: "account-info/:id", // URL with params
+    component: AccountComponent,
+  },
   // {
   //   path: "transaction", // URL with params
   //   component: TransactionComponent,

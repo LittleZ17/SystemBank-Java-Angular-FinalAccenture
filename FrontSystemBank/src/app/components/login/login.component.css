@@ -6,21 +6,78 @@
 }
 .form-login{
     width: 70vw;
-    height: 30%;
+    height: 35vh;
     box-shadow: var(--shadow-blue);
     border-radius: 20px;
-    margin: 8% 0;
+    margin: 5% 0;
     flex-direction: column;
-    padding:10%;
+    padding: 0 5%;
 }
 label{
     width: 100%;
     display: flex;
     flex-direction: column;
-    font-size: 1.2rem;
-    margin-bottom: 20%;
+    font-size: 1.4rem;
+    margin-bottom: 20px;
 }
 input{
     height: 30px;
+    box-shadow: var(--shadow);
+    border: var(--border-input);
+    border-radius: 10px;
+    margin: 8px 0;
+    padding: 0 5%;
+    font-size: 1.3rem;
 }
+.link-signin, .link-signin a{
+    font-size: 1.3rem;
+    margin-top: 8%;
+}
+.link-signin a{
+    color: var(--c-blue);
+    text-decoration: none;
+}
+.link-signin a:hover{
+    color: var(--c-orange);
+}
+.error-msg{
+    display: flex;
+    align-items: center;
+    text-justify: center;
+    color: var(--c-orange);
+    font-size: 1.2rem;
+}
+.msg-ok{
+    background-color: var(--bg-green);
+    color: var(--c-green);
+}
+.msg-error{
+    background-color: var(--bg-orange);
+    color: var(--c-orange);
+}
+
+@media only screen and (min-width: 768px) {
+    .title{
+        width: 50vw;
+    }
+    .form-login{
+        width: 50vw;
+        margin: 5% 0;
+    }
+    .login-img {
+        max-height: 40vh;
+        margin: 0;
+    }
+    input{
+        height: 35px;
+    }
+}
+
+
+@media only screen and (min-width: 992px) {}
+
+
+
+
+
 

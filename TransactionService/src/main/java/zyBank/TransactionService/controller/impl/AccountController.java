@@ -3,6 +3,7 @@ package zyBank.TransactionService.controller.impl;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import zyBank.TransactionService.controller.dto.AccountBalanceDTO;
 import zyBank.TransactionService.controller.interfaces.IAccountController;
@@ -22,6 +23,13 @@ public class AccountController implements IAccountController {
     @Autowired
     IServiceAccount serviceAccount;
 
+    @Override
+    @GetMapping("/accounts/customer/{customerId}")
+    @ResponseStatus(HttpStatus.OK)
+    public ResponseEntity<List<Account>> getAccountsByCustomerId(@PathVariable(name = "customerId") Integer customerId) {
+        List<Account> accounts = serviceAccount.getAccountsByCustomerId(customerId);
+        return new ResponseEntity<>(accounts, HttpStatus.OK);
+    }
     @Override
     @GetMapping("/accounts")
     @ResponseStatus(HttpStatus.OK)

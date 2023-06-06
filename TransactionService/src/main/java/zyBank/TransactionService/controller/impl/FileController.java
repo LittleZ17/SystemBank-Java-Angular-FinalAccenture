@@ -36,18 +36,14 @@ public class FileController {
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.MULTIPART_FORM_DATA);
 
-        // Prepare the request body with the file and its content length
         MultiValueMap<String, Object> body = new LinkedMultiValueMap<>();
         body.add("file", file.getResource());
         headers.setContentLength(file.getSize());
 
-        // Create the RequestEntity with the headers and body
         RequestEntity<MultiValueMap<String, Object>> requestEntity = new RequestEntity<>(body, headers, HttpMethod.POST, URI.create(uploadUrl));
 
-        // Send the request using RestTemplate and retrieve the response
         ResponseEntity<String> responseEntity = restTemplate.exchange(requestEntity, String.class);
 
-        // Handle the response as needed
         ResponseEntity response = responseEntity;
         return response;
     }
@@ -56,7 +52,7 @@ public class FileController {
     @ResponseStatus(HttpStatus.OK)
     public ResponseEntity<Resource> getFile(@PathVariable(name = "filename") String filename) {
         System.out.println(filename);
-        String getUrl = "http://localhost:8081/media/" + filename; // Reemplaza con la URL de tu controlador original
+        String getUrl = "http://localhost:8081/media/" + filename;
 
         ResponseEntity<Resource> response = restTemplate.getForEntity(getUrl, Resource.class);
 
