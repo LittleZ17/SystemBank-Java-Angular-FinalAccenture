@@ -64,7 +64,7 @@ export class LoginComponent {
         this.errorLogin = true;
         setTimeout(() => {
           this.errorLogin = false;
-        }, 1300); 
+        }, 1800); 
       }
     })
   }

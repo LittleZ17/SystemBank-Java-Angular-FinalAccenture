@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Philosopher:wght@400;700&family=Roboto:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100&display=swap');
 
 :root {
   --c-blue: #288fb4;
@@ -8,16 +8,17 @@
   --c-orange: #ff735c;
   --c-green: #2b503e;
   
+  --text-grey: #A6A6A6;
   
-
   --bg-logo: #dbedf1;
   --bg-green: rgba(180, 211, 193, 0.9);
   --bg-orange: rgba(243, 195, 185, 0.95);
 
   --shadow: 0px 4px 18px rgba(158, 168, 189, 0.31);
   --shadow-blue: 0px 4px 20px rgba(77, 166, 186, 0.38);
-  --border: 1px solid rgba(255, 255, 255, 0.445);
+  --border-w: 1px solid rgba(255, 255, 255, 0.445);
   --border-input: 1px solid #E2E6EE;
+  --border-g: 1px solid #9EA8BD;
 }
 
 * {
@@ -26,11 +27,12 @@
   padding: 0;
   box-sizing: border-box;
   font-size: 62.5%;
+  /* color: var(--c-black); */
 }
 h6 {
   font-weight: 300;
   font-size: 2rem;
-  color: var(--c-grey);
+  color: var(--text-grey);
 }
 
 h2 {
@@ -50,6 +52,11 @@ img {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+.box-shadow{
+  border: var(--border-w);
+  border-radius: 20px;
+  box-shadow: var(--shadow-blue);
 }
 .btn-form{
   width: 100%;
@@ -80,13 +87,28 @@ img {
   animation: zoom-in 1s forwards;
 }
 .msg-e{
-  animation: zoom-in-on 2s forwards;
+  animation: zoom-in-on 6s forwards;
 }
 .msg p{
   font-size: 1.8rem;
   font-weight: 700;
   text-align: center;
   margin-top: 5%;
+}
+.error-msg{
+  display: flex;
+  align-items: center;
+  text-justify: center;
+  color: var(--c-orange);
+  font-size: 1.2rem;
+}
+.msg-ok{
+  background-color: var(--bg-green);
+  color: var(--c-green);
+}
+.msg-error{
+  background-color: var(--bg-orange);
+  color: var(--c-orange);
 }
 
 @keyframes zoom-in {

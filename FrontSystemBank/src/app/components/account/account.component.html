@@ -1,11 +1,39 @@
 <div class="box-ct box box-account" *ngIf="infoAccount">
-
-    <div class="title"> 
-        <h6>Account Information</h6>
-        <h2>Total Balance</h2>
-    </div>
-    <article>
-        <h2>{{infoAccount.balance.amount }}</h2><span>{{infoAccount.balance.currency }}</span>
-    </article>
-    
+  <div class="title">
+    <h6>Account Information</h6>
+    <h2>Total Balance</h2>
+  </div>
+  <div class="btn-grey box-ct">
+    <img src="../../../assets/png/visa-vector.png" alt="visa icon" />
+    <p>
+      Nº Account: <span>{{ infoAccount.number }}</span>
+    </p>
+    <img src="../../../assets/icon/arrow.svg" alt="" />
+  </div>
+  <article class="box-balance box-ct box-shadow">
+    <h2>
+      {{ infoAccount.balance.amount
+      }}<span> {{ infoAccount.balance.currency }}</span>
+    </h2>
+    <button class="box-ct btn-trans" routerLink="/transaction">
+      <img src="../../../assets/icon/plus-circle.svg" alt="Icon plus add" />NEW
+      TRANSACTION
+    </button>
+  </article>
+  <div class="title">
+    <h6>Your credit card information</h6>
+    <h2>All Credit Cards</h2>
+  </div>
+  <div class="box-cards box-shadow">
+    <img
+      src="../../../assets/icon/card-blue.svg"
+      alt="credit card blue"
+      class="card-b"
+    />
+    <img
+      src="../../../assets/icon/card-orange.svg"
+      alt="credit card orange"
+      class="card-o"
+    />
+  </div>
 </div>

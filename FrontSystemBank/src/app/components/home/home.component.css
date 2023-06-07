@@ -90,6 +90,9 @@
   border-radius: 50%;
   font-size: 70px;
 }
+.login-btn i{
+  color: var(--c-white);
+}
 .login-btn:hover {
     background-color: var(--c-orange);
   }

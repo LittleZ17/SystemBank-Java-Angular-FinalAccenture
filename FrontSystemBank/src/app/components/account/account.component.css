@@ -1,3 +1,128 @@
 .box-account{
     flex-direction: column;
 }
+.div-extra{
+    display: none;
+}
+.title{
+    width: 70vw;
+}
+.btn-grey{
+    width: 60vw;
+    height: 35px;
+    border: var(--border-g);
+    border-radius: 20px;
+    box-shadow: var(--shadow);
+    justify-content: space-around;
+    padding: 0 2%;
+    margin-top: 3%;
+}
+.btn-grey p, span{
+    font-size: 1.5rem;
+}
+.btn-grey span{
+    font-family: 'Philosopher', sans-serif;
+    font-weight: 700;
+}
+.box-balance{
+    width: 70vw;
+    height: 15vh;
+    flex-direction: column;
+    margin: 8% 0;
+}
+.box-balance h2, .box-balance span{
+    font-family: 'Philosopher', sans-serif;
+    font-size: 3.2rem;
+    letter-spacing: 1.2px;
+}
+.box-balance span{
+    color: var(--text-grey);
+}
+.btn-trans{
+   width: 35vw;
+   height: 30px;
+   justify-content: space-evenly;
+   margin-top: 5%;
+   border: var(--border-g);
+   border-radius: 20px;
+   box-shadow: var(--shadow);
+   background-color: var(--c-white);
+   font-size: 1rem;
+   color: var(--text-grey);
+}
+.btn-trans:hover{
+    background-color: var(--bg-logo);
+    color: var(--c-blue);
+    font-weight: 600;
+}
+
+
+.box-cards {
+    position: relative;
+    width: 70vw;
+    height: 25vh;
+    margin-top: 3%;
+}
+
+.box-cards img {
+    max-width: 50vw;
+}
+
+.box-cards .card-b {
+    position: absolute;
+    top: 12%;
+    left: 5%;
+}
+
+.box-cards .card-o {
+    position: absolute;
+    top: 28%;
+    left: 23%;
+}
+.card-b:hover, .card-o:hover{
+    transform: scale(1.1);
+    transition: transform 0.2s ease-in-out;
+
+}
+@media only screen and (min-width: 768px) {
+    .btn-grey{
+        width: 35vw;
+    }
+    .box-balance{
+        width: 50vw;
+    }
+    .box-balance .btn-trans{
+        width: 20vw;
+        height: 35px;
+        margin: 5% 0;
+    }
+    .box-cards{
+        /* width: 50vw; */
+        height: 35vh;
+    }
+    .box-cards .card-b{
+        top: 8%;
+        left: 10%;
+    }
+    .box-cards .card-o{
+        top: 20%;
+        left: 30%;
+    }
+}
+@media only screen and (min-width: 992px) {
+    .btn-grey{
+        height: 50px;
+    }
+    .box-balance{
+        height: 15vh;
+        margin: 3% 0;
+        padding: 0 8%;
+    }
+    .box-cards{
+        width: 55vw;
+    }
+    .box-cards .card-o{
+        top: 22%;
+        left: 28%;
+    }
+}
