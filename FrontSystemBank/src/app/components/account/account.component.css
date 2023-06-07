@@ -1,5 +1,6 @@
 .box-account{
     flex-direction: column;
+    overflow-x: hidden;
 }
 .div-extra{
     display: none;
@@ -8,7 +9,7 @@
     width: 70vw;
 }
 .btn-grey{
-    width: 60vw;
+    width: 70vw;
     height: 35px;
     border: var(--border-g);
     border-radius: 20px;
@@ -28,7 +29,7 @@
     width: 70vw;
     height: 15vh;
     flex-direction: column;
-    margin: 8% 0;
+    margin: 15% 0;
 }
 .box-balance h2, .box-balance span{
     font-family: 'Philosopher', sans-serif;
@@ -55,8 +56,6 @@
     color: var(--c-blue);
     font-weight: 600;
 }
-
-
 .box-cards {
     position: relative;
     width: 70vw;
@@ -89,7 +88,8 @@
         width: 35vw;
     }
     .box-balance{
-        width: 50vw;
+        width: 70vw;
+        margin: 8% 0;
     }
     .box-balance .btn-trans{
         width: 20vw;
@@ -97,7 +97,7 @@
         margin: 5% 0;
     }
     .box-cards{
-        /* width: 50vw; */
+        width: 70vw;
         height: 35vh;
     }
     .box-cards .card-b{
@@ -106,20 +106,41 @@
     }
     .box-cards .card-o{
         top: 20%;
-        left: 30%;
+        left: 25%;
     }
 }
 @media only screen and (min-width: 992px) {
+    .box-account{
+        flex-direction: row;
+        max-width: 100vw;
+        padding: 5%;
+        justify-content: center;
+    }
+    .box1, .box2{
+        width: 30vw;
+    }
+    .box1{
+        margin-right: 60px;
+    }
     .btn-grey{
         height: 50px;
+        width: 30vw;
+        margin-top: 1%;
     }
     .box-balance{
+        width: 30vw;
         height: 15vh;
-        margin: 3% 0;
+        margin: 10% 0;
         padding: 0 8%;
     }
+    .box-balance .btn-trans{
+        width: 200px;
+        font-size: 1.3rem;
+    }
     .box-cards{
-        width: 55vw;
+        width: 100%;
+        height: 37vh;
+        margin-top: 0;
     }
     .box-cards .card-o{
         top: 22%;
