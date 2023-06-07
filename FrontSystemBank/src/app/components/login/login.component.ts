@@ -10,14 +10,14 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
+  profileData!: number;
 
-  customersList: any;
+  // customersList: any;
   loginForm: FormGroup;
   emailInput: FormControl;
   passwordInput: FormControl;
 
   formSubmitted: boolean = false;
-  profileData!: number;
   successLogin: boolean = false;
   errorLogin: boolean= false;
   
@@ -31,31 +31,31 @@ export class LoginComponent {
     })
   }
 
-
-  getCustomers(): void {
-    this.requestService.getCustomers().subscribe(
-      {
-        next: (data) => {
-          console.log(data);
-          this.customersList = data;       
-        }
-      }
-    )
-  }
+// BORRAR ANTES
+  // getCustomers(): void {
+  //   this.requestService.getCustomers().subscribe(
+  //     {
+  //       next: (data) => {
+  //         console.log(data);
+  //         this.customersList = data;       
+  //       }
+  //     }
+  //   )
+  // }
 
   postLogin():void{
     const newLogin: any = {
       email: this.emailInput.value,
       password: this.passwordInput.value
     }
+
     this.requestService.postLogin(newLogin).subscribe({
-  
       next:(data) =>{
-        console.log(data.id);
+        // console.log(data.id);
         this.profileData = data.id;
         this.successLogin = true;
         setTimeout(() => {
-          this.router.navigate(['/account-info', data.id], { queryParams: { profileData: JSON.stringify(data.id) } });
+          this.router.navigate(['/account-info', this.profileData], { queryParams: { profileData: JSON.stringify(this.profileData) } });
         }, 1300);        
       },
       error: (error) => {
@@ -75,5 +75,4 @@ export class LoginComponent {
     this.formSubmitted = true;
     this.postLogin();
   }
-
 }

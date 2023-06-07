@@ -1,0 +1,161 @@
+<body class="box-register box-ct box">
+  <div class="title hidd">
+    <h6>Access</h6>
+    <h2>Register</h2>
+  </div>
+  <div class="container">
+  <form
+    (ngSubmit)="onSubmit()"
+    [formGroup]="registerForm"
+    class="box-ct form-register"
+  >
+    <h2 class="title-form">Register your Profile</h2>
+    <section class="box1">
+      <label
+        >Name
+        <input type="text" placeholder="Jhon" formControlName="name" />
+        <p class="error-msg" *ngIf="nameInput.invalid && nameInput.touched">
+          <img
+            src="../../../assets/icon/exclamation-circle.svg"
+            alt="exclamation icon"
+          />Please, enter your name.
+        </p>
+      </label>
+      <label
+        >Lastname
+        <input type="text" placeholder="Smith" formControlName="lastname" />
+        <p
+          class="error-msg"
+          *ngIf="lastnameInput.invalid && lastnameInput.touched"
+        >
+          <img
+            src="../../../assets/icon/exclamation-circle.svg"
+            alt="exclamation icon"
+          />Please, enter your lastname.
+        </p>
+      </label>
+    </section>
+    <section class="box1">
+      <label
+        >National ID
+        <input type="text" placeholder="123456788-R" formControlName="id" />
+        <p
+          class="error-msg"
+          *ngIf="idNationalInput.invalid && idNationalInput.touched"
+        >
+          <img
+            src="../../../assets/icon/exclamation-circle.svg"
+            alt="exclamation icon"
+          />Please, enter valid national Id.
+        </p>
+      </label>
+      <label
+        >Phone
+        <input type="text" placeholder="+34 678 123 456" formControlName="phone" />
+        <p class="error-msg" *ngIf="phoneInput.invalid && phoneInput.touched">
+          <img
+            src="../../../assets/icon/exclamation-circle.svg"
+            alt="exclamation icon"
+          />Please, enter valid phone.
+        </p>
+      </label>
+    </section>
+    <label class="input-md"
+      >Address Principal
+      <input type="text" placeholder="Evergreen Terrace 123" formControlName="street" />
+      <p
+        class="error-msg"
+        *ngIf="fullStreetInput.invalid && fullStreetInput.touched"
+      >
+        <img
+          src="../../../assets/icon/exclamation-circle.svg"
+          alt="exclamation icon"
+        />Please, enter your address.
+      </p>
+    </label>
+    <section class="box1">
+      <label
+        >City
+        <input type="text" placeholder="Alicante" formControlName="city" />
+        <p class="error-msg" *ngIf="cityInput.invalid && cityInput.touched">
+          <img
+            src="../../../assets/icon/exclamation-circle.svg"
+            alt="exclamation icon"
+          />Please, enter valid city.
+        </p>
+      </label>
+      <label
+        >Postal Code
+        <input type="text" placeholder="03003" formControlName="postal" />
+        <p
+          class="error-msg"
+          *ngIf="postalCodeInput.invalid && postalCodeInput.touched"
+        >
+          <img
+            src="../../../assets/icon/exclamation-circle.svg"
+            alt="exclamation icon"
+          />Please, enter valid postal code.
+        </p>
+      </label>
+    </section>
+    <label
+       class="input-md">Email
+      <input type="email" placeholder="client1@gbank.es" formControlName="email" />
+      <p class="error-msg" *ngIf="emailInput.invalid && emailInput.touched">
+        <img
+          src="../../../assets/icon/exclamation-circle.svg"
+          alt="exclamation icon"
+        />Please, enter your email.
+      </p>
+    </label>
+    <section class="box1">
+      <label
+        >Password
+        <input type="password" placeholder="********" formControlName="password" />
+        <p
+          class="error-msg"
+          *ngIf="passwordInput.invalid && passwordInput.touched"
+        >
+          <img
+            src="../../../assets/icon/exclamation-circle.svg"
+            alt="exclamation icon"
+          />
+          Password must be 8 characters long.
+        </p>
+      </label>
+      <label
+        >Confirm Password
+        <input
+          type="password"
+          placeholder="Confirm Password"
+          formControlName="passwordConfirm"
+        />
+        <p
+          class="error-msg"
+          *ngIf="passwordConfirmInput.invalid && passwordConfirmInput.touched"
+        >
+          <img
+            src="../../../assets/icon/exclamation-circle.svg"
+            alt="exclamation icon"
+          />
+          Passwords do not match.
+        </p>
+      </label>
+    </section>
+    <button type="submit" [disabled]="registerForm.invalid" class="btn-form btn">
+      Create Profile
+    </button>
+    <div class="msg msg-ok box-ct" *ngIf="formSubmitted && successRegister">
+      <img src="../../../assets/icon/check-circle.svg" alt="check circle" />
+      <p>Success!</p>
+      <p>You have been registered.</p>
+      <p>Please log in.</p>
+    </div>
+    <div class="msg msg-error box-ct msg-e" *ngIf="errorRegister">
+      <img src="../../../assets/icon/error-circle.svg" alt="check circle" />
+      <p>Please fill in all the required fields.</p>
+    </div>
+  </form>
+  <img src="../../../assets/png/login.png" alt="register image" class="img-register">
+</div>
+</body>

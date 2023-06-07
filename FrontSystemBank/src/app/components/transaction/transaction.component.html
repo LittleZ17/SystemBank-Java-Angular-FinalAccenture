@@ -1,0 +1,82 @@
+<div class="box-ct box box-transfer">
+  <div class="title hidd">
+    <h6>New Transaction</h6>
+    <h2>Transfer</h2>
+  </div>
+  <img
+    src="../../../assets/png/transfer.png"
+    alt="transfer image"
+    class="img-transfer"
+  />
+  <form
+    (ngSubmit)="onSubmit()"
+    [formGroup]="transferForm"
+    class="box-ct form-transfer"
+  >
+  <div class="title-transfer">
+    <h6>New Transaction</h6>
+    <h2>Transfer</h2>
+  </div>
+    <label
+      >Account Number
+      <input type="text" placeholder="" formControlName="account" [value]="accountNumberInput.value"  />
+      <p
+        class="error-msg"
+        *ngIf="accountNumberInput.invalid && accountNumberInput.touched"
+      >
+        <img
+          src="../../../assets/icon/exclamation-circle.svg"
+          alt="exclamation icon"
+        />Please, enter account destination.
+      </p>
+    </label>
+    <label
+      >Name Destination
+      <input type="text" placeholder="" formControlName="name" />
+      <p class="error-msg" *ngIf="nameInput.invalid && nameInput.touched">
+        <img
+          src="../../../assets/icon/exclamation-circle.svg"
+          alt="exclamation icon"
+        />
+        Please enter the name of the account holder.
+      </p>
+    </label>
+    <label
+      >Amount
+      <input type="number" placeholder="$$$" formControlName="amount" />
+      <p class="error-msg" *ngIf="amountInput.invalid && amountInput.touched">
+        <img
+          src="../../../assets/icon/exclamation-circle.svg"
+          alt="exclamation icon"
+        />
+        Invalid amount. Please enter a valid number.
+      </p>
+    </label>
+    <label
+      >Subject
+      <input type="text" placeholder="" formControlName="subject" />
+      <p class="error-msg" *ngIf="subjectInput.invalid && subjectInput.touched">
+        <img
+          src="../../../assets/icon/exclamation-circle.svg"
+          alt="exclamation icon"
+        />
+        Please enter a subject about your operation.
+      </p>
+    </label>
+    <button type="submit" [disabled]="transferForm.invalid" class="btn-form">
+      Send Money
+    </button>
+    <div class="msg msg-ok box-ct" *ngIf="formSubmitted && successTransfer">
+      <img src="../../../assets/icon/check-circle.svg" alt="check circle" />
+      <p>Success!</p>
+      <p>The transfer has been sent.</p>
+    </div>
+    <div class="msg msg-error box-ct msg-e" *ngIf="errorTransfer">
+      <img src="../../../assets/icon/error-circle.svg" alt="check circle" />
+      <p>Please check your information and try again.</p>
+    </div>
+    <!-- <p class="link-signin">
+        Already have an account? <a routerLink="/login"> Login.</a>
+    </p> -->
+  </form>
+</div>

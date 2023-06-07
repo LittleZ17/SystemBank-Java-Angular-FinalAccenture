@@ -4,35 +4,37 @@ import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { AccountComponent } from './components/account/account.component';
+import { TransactionComponent } from './components/transaction/transaction.component';
+import { RegisterComponent } from './components/register/register.component';
 
 
 const routes: Routes = [
   {
-    path: "", // Default home page
+    path: "", 
     component: HomeComponent,
   },
   {
     path: "login",
     component: LoginComponent,
   },
-  // {
-  //   path: "register", // URL with params
-  //   component: RegisterComponent,
-  // },
   {
-    path: "account-info/:id", // URL with params
+    path: "register",
+    component: RegisterComponent,
+  },
+  {
+    path: "account-info/:id",
     component: AccountComponent,
   },
-  // {
-  //   path: "transaction", // URL with params
-  //   component: TransactionComponent,
-  // },
+  {
+    path: "transaction/:id",
+    component: TransactionComponent,
+  },
   {
     path: "profile/:id",
     component: ProfileComponent,
   },
   // {
-  //   path: "**", // 404 Page
+  //   path: "**", 
   //   component: PageNotFoundComponent,
   // },
 ];

@@ -10,6 +10,8 @@ import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { AccountComponent } from './components/account/account.component';
+import { TransactionComponent } from './components/transaction/transaction.component';
+import { RegisterComponent } from './components/register/register.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +20,8 @@ import { AccountComponent } from './components/account/account.component';
     LoginComponent,
     ProfileComponent,
     AccountComponent,
+    TransactionComponent,
+    RegisterComponent,
   ],
   imports: [
     BrowserModule,

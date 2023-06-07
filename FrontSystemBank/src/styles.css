@@ -110,6 +110,10 @@ img {
   background-color: var(--bg-orange);
   color: var(--c-orange);
 }
+::placeholder {
+  color: var(--c-grey);
+  font-family: 'Philosopher', sans-serif;
+}
 
 @keyframes zoom-in {
   0% {

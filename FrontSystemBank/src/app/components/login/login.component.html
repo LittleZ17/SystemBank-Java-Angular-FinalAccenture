@@ -1,39 +1,61 @@
 <body class="box-login box-ct box">
-  <div class="title hidd"> 
+  <div class="title hidd">
     <h6>Access</h6>
     <h2>Login</h2>
   </div>
-    
-    <!-- <button (click)="getCustomers()">GET CUSTOMERS</button> -->
-    <form (ngSubmit)="onSubmit()" [formGroup]="loginForm" class="box-ct form-login">
-      <div class="title-login"> 
-        <h6>Access</h6>
-        <h2>Login</h2>
-      </div>
-        <label class=>Email
-          <input type="email" placeholder="" formControlName="email"/>
-          <p class="error-msg" *ngIf="emailInput.invalid && emailInput.touched">
-            <img src="../../../assets/icon/exclamation-circle.svg" alt="exclamation icon">Please, intro your email.
-          </p>
-        </label>
-        <label class=>Password
-            <input type="password" placeholder="" formControlName="password"/>
-              <p class="error-msg" *ngIf="passwordInput.invalid && passwordInput.touched">
-                <img src="../../../assets/icon/exclamation-circle.svg" alt="exclamation icon"> Password must be 8 characters long.
-              </p>
-          </label>
-        <button type="submit" [disabled]="loginForm.invalid" class="btn-form">Login</button>
-        <div class="msg msg-ok box-ct" *ngIf="formSubmitted && successLogin">
-          <img src="../../../assets/icon/check-circle.svg" alt="check circle">
-          <p>Success!</p>
-          <p>You have been logged in.</p>
-        </div>
-        <div class=" msg msg-error box-ct msg-e" *ngIf="errorLogin">
-          <img src="../../../assets/icon/error-circle.svg" alt="check circle">
-          <p>Invalid credentials. Please try again.</p>
-        </div>
-        <p class="link-signin">Don't have an account? <a routerLink="/signin">Create one.</a></p>
-      </form>
-      <img src="../../../assets/png/login1.png" alt="Image login system" class="imgAnimation login-img">
-     
+  <!-- <button (click)="getCustomers()">GET USTOMERS</button> -->
+  <form
+    (ngSubmit)="onSubmit()"
+    [formGroup]="loginForm"
+    class="box-ct form-login"
+  >
+    <div class="title-login">
+      <h6>Access</h6>
+      <h2>Login</h2>
+    </div>
+    <label
+      >Email
+      <input type="email" placeholder="" formControlName="email" />
+      <p class="error-msg" *ngIf="emailInput.invalid && emailInput.touched">
+        <img
+          src="../../../assets/icon/exclamation-circle.svg"
+          alt="exclamation icon"
+        />Please, enter your email.
+      </p>
+    </label>
+    <label
+      >Password
+      <input type="password" placeholder="" formControlName="password" />
+      <p
+        class="error-msg"
+        *ngIf="passwordInput.invalid && passwordInput.touched"
+      >
+        <img
+          src="../../../assets/icon/exclamation-circle.svg"
+          alt="exclamation icon"
+        />
+        Password must be 8 characters long.
+      </p>
+    </label>
+    <button type="submit" [disabled]="loginForm.invalid" class="btn-form">
+      Login
+    </button>
+    <div class="msg msg-ok box-ct" *ngIf="formSubmitted && successLogin">
+      <img src="../../../assets/icon/check-circle.svg" alt="check circle" />
+      <p>Success!</p>
+      <p>You have been logged in.</p>
+    </div>
+    <div class="msg msg-error box-ct msg-e" *ngIf="errorLogin">
+      <img src="../../../assets/icon/error-circle.svg" alt="check circle" />
+      <p>Invalid credentials. Please try again.</p>
+    </div>
+    <p class="link-signin">
+      Don't have an account? <a routerLink="/register">Create one.</a>
+    </p>
+  </form>
+  <img
+    src="../../../assets/png/login1.png"
+    alt="Image login system"
+    class="imgAnimation login-img"
+  />
 </body>

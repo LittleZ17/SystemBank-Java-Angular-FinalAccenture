@@ -9,7 +9,7 @@
 }
 .form-login {
   width: 70vw;
-  height: 35vh;
+  height: 40vh;
   box-shadow: var(--shadow-blue);
   border-radius: 20px;
   margin: 5% 0;
@@ -87,6 +87,5 @@ input {
 
   .login-img {
     width: 30vw;
-    max-width: 100%;
   }
 }

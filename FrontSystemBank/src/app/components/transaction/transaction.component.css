@@ -1,0 +1,78 @@
+.box-transfer {
+  flex-direction: column;
+}
+.title {
+  width: 70vw;
+}
+.title-transfer{
+  display: none;
+}
+.img-transfer {
+  width: 65vw;
+  margin: 3% 0;
+}
+.form-transfer {
+  width: 70vw;
+  height: 50vh;
+  box-shadow: var(--shadow-blue);
+  border-radius: 20px;
+  margin: 5% 0;
+  flex-direction: column;
+  padding: 5%;
+}
+.form-transfer label{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    font-size: 1.4rem;
+    margin-bottom: 18px;
+}
+input {
+    height: 30px;
+    box-shadow: var(--shadow);
+    border: var(--border-input);
+    border-radius: 10px;
+    /* margin: 5px 0; */
+    padding: 0 8%;
+    font-size: 1.3rem;
+}
+.link-signin,
+.link-signin a {
+  font-size: 1.3rem;
+  margin-top: 5%;
+}
+.link-signin a {
+  color: var(--c-blue);
+  text-decoration: none;
+}
+.link-signin a:hover {
+  color: var(--c-orange);
+}
+@media only screen and (min-width: 768px) {
+  .form-transfer{
+    width: 50vw;
+    height: 40vh;
+  }
+}
+
+@media only screen and (min-width: 992px) {
+  .hidd {
+    display: none;
+  }
+  .title-transfer {
+    display: flex;
+    flex-direction: column;
+    align-self: flex-start;
+    margin-bottom: 15%;
+  }
+  .box-transfer{
+    flex-direction: row;
+  }
+  .form-transfer {
+    width: 30vw;
+    height: 60vh;
+  }
+  .img-transfer{
+    width: 30vw;
+  }
+}

@@ -59,7 +59,7 @@
 .box-cards {
     position: relative;
     width: 70vw;
-    height: 25vh;
+    height: 30vh;
     margin-top: 3%;
 }
 
@@ -83,6 +83,13 @@
     transition: transform 0.2s ease-in-out;
 
 }
+@media only screen and (min-width: 400px) {
+    .box-cards {
+        width: 70vw;
+        height: 25vh;
+        margin-top: 10%;
+    }
+} 
 @media only screen and (min-width: 768px) {
     .btn-grey{
         width: 35vw;
@@ -97,12 +104,13 @@
         margin: 5% 0;
     }
     .box-cards{
-        width: 70vw;
-        height: 35vh;
+        width: 65vw;
+        height: 32vh;
+        margin-top: 5%;
     }
     .box-cards .card-b{
         top: 8%;
-        left: 10%;
+        left: 5%;
     }
     .box-cards .card-o{
         top: 20%;
@@ -138,9 +146,9 @@
         font-size: 1.3rem;
     }
     .box-cards{
-        width: 100%;
+        width: 122%;
         height: 37vh;
-        margin-top: 0;
+        margin-top: 10%;
     }
     .box-cards .card-o{
         top: 22%;

@@ -16,15 +16,17 @@ export class UserServiceService {
   }
 
   getCustomers(): Observable<any>{
-    return this.http.get<any>(`${this.API_URL}/customers`)
+    return this.http.get<any>(`${this.API_URL}/customer`)
   }
 
   getCustomerById(id: any): Observable<any>{
-    return this.http.get<any>(`${this.API_URL}/:id`)
+    return this.http.get<any>(`${this.API_URL}/${id}`)
   }
 
-  postLogin(body:any): Observable<any>{
-  
+  postLogin(body: any): Observable<any>{
     return this.http.post<any>(`${this.API_URL}/login`, body)
+  }
+  postRegister(body: any): Observable<any>{
+    return this.http.post<any>(`${this.API_URL}/customer`, body)
   }
 }
