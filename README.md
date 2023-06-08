@@ -18,6 +18,7 @@ This application is a complete system developed with Java and Spring Boot that o
 
 The Administrator has special privileges and can create and delete accounts and users in the system. On the other hand, Clients can have multiple accounts and make money transfers to other clients.
 
+### The application is designed to be fully responsive, providing an optimal user experience across different devices and screen sizes. 
 ![Responsive](/assets/responsive.png)
 
 ## :paperclips: CaseDiagram & ClassDiagram
@@ -80,11 +81,8 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The appli
 ### Github : [@LittleZ17](https://github.com/LittleZ17)
 
 		```
-		
 		Thanks Adrian, David, Jarko !!
-		
 		```
-
 # Happy banking! :wink:
 
 
