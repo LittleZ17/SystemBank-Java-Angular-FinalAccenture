@@ -1,1 +1,151 @@
-<p>profile works!</p>
+<div *ngIf="infoCustomer" class="box box-ct box-info">
+    <div class="title">
+        <h6>Account Information</h6>
+        <h2>Total Balance</h2>
+      </div>
+      <section class="box-shadow box-ct info">
+        <div class="info-txt">
+            <h3>{{ infoCustomer.name }} {{ infoCustomer.lastname }}</h3>
+            <p><img src="../../../assets/icon/identification.svg" alt="icon identification">ID {{ infoCustomer.idNational}}</p>
+            <p><img src="../../../assets/icon/home.svg" alt="icon home">{{ infoCustomer.homeAddress.fullStreet}}</p>
+            <p><img src="../../../assets/icon/phone.svg" alt="icon phone">{{ infoCustomer.phone}}</p>
+            <p><img src="../../../assets/icon/at.svg" alt="icon email">{{ infoCustomer.email}}</p>
+        </div>
+        <div>
+            <img src="../../../assets/png/profile-img.png" alt="profile image" class="profile-img">
+        </div>
+      </section>
+      <button class="box-ct btn-edit" (click)="toggleForm()">
+        <img src="../../../assets/icon/pencil.svg" alt="Icon plus add"/> EDIT INFORMATION
+      </button>
+      <div *ngIf="showForm" id="form-info" class="form-info" [ngClass]="{'show': showForm}">
+        <form
+    (ngSubmit)="onSubmit()"
+    [formGroup]="updateForm"
+    class="box-ct form-register"
+  >
+    <h2 class="title-form">Edit your Information</h2>
+    <section class="box1">
+      <label
+        >Name
+        <input type="text" [placeholder]=infoCustomer.name formControlName="name" readonly class="readonly"/>
+      </label>
+      <label
+        >Lastname
+        <input type="text" [placeholder]=infoCustomer.lastname formControlName="lastname" readonly class="readonly"/>
+      </label>
+    </section>
+    <section class="box1">
+      <label
+        >National ID
+        <input type="text" [placeholder]=infoCustomer.idNational formControlName="id" readonly class="readonly"/>
+      </label>
+      <label
+        >Phone
+        <input type="text"  formControlName="phone" [value]=infoCustomer.phone/>
+        <p class="error-msg" *ngIf="phoneInput.invalid && phoneInput.touched">
+          <img
+            src="../../../assets/icon/exclamation-circle.svg"
+            alt="exclamation icon"
+          />Please, enter valid phone.
+        </p>
+      </label>
+    </section>
+    <label class="input-md"
+      >Address Principal
+      <input type="text" [placeholder]=infoCustomer.homeAddress.fullStreet formControlName="street" />
+      <p
+        class="error-msg"
+        *ngIf="fullStreetInput.invalid && fullStreetInput.touched"
+      >
+        <img
+          src="../../../assets/icon/exclamation-circle.svg"
+          alt="exclamation icon"
+        />Please, enter your address.
+      </p>
+    </label>
+    <section class="box1">
+      <label
+        >City
+        <input type="text" [placeholder]=infoCustomer.homeAddress.city formControlName="city" />
+        <p class="error-msg" *ngIf="cityInput.invalid && cityInput.touched">
+          <img
+            src="../../../assets/icon/exclamation-circle.svg"
+            alt="exclamation icon"
+          />Please, enter valid city.
+        </p>
+      </label>
+      <label
+        >Postal Code
+        <input type="text" [placeholder]=infoCustomer.homeAddress.postalCode formControlName="postal" />
+        <p
+          class="error-msg"
+          *ngIf="postalCodeInput.invalid && postalCodeInput.touched"
+        >
+          <img
+            src="../../../assets/icon/exclamation-circle.svg"
+            alt="exclamation icon"
+          />Please, enter valid postal code.
+        </p>
+      </label>
+    </section>
+    <label
+       class="input-md">Email
+      <input type="email" [placeholder]=infoCustomer.email formControlName="email" />
+      <p class="error-msg" *ngIf="emailInput.invalid && emailInput.touched">
+        <img
+          src="../../../assets/icon/exclamation-circle.svg"
+          alt="exclamation icon"
+        />Please, enter your email.
+      </p>
+    </label>
+    <section class="box1">
+      <label
+        >Password
+        <input type="password" [placeholder]=infoCustomer.password formControlName="password" />
+        <p
+          class="error-msg"
+          *ngIf="passwordInput.invalid && passwordInput.touched"
+        >
+          <img
+            src="../../../assets/icon/exclamation-circle.svg"
+            alt="exclamation icon"
+          />
+          Password must be 8 characters long.
+        </p>
+      </label>
+      <!-- <label
+        >Confirm Password
+        <input
+          type="password"
+          placeholder="Confirm Password"
+          formControlName="passwordConfirm"
+        />
+        <p
+          class="error-msg"
+          *ngIf="passwordConfirmInput.invalid && passwordConfirmInput.touched"
+        >
+          <img
+            src="../../../assets/icon/exclamation-circle.svg"
+            alt="exclamation icon"
+          />
+          Passwords do not match.
+        </p>
+      </label> -->
+    </section>
+    <button type="submit" class="btn-form btn">
+      Create Profile
+    </button>
+    <div class="msg msg-ok box-ct" *ngIf="formSubmitted && successRegister">
+      <img src="../../../assets/icon/check-circle.svg" alt="check circle" />
+      <p>Success!</p>
+      <p>Your information is updated.</p>
+    </div>
+    <div class="msg msg-error box-ct msg-e" *ngIf="errorRegister">
+      <img src="../../../assets/icon/error-circle.svg" alt="check circle" />
+      <p>Please fill in all the required fields.</p>
+    </div>
+  </form>
+      </div>
+
+</div>

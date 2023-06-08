@@ -36,9 +36,12 @@ getInfoAccount(): void{
   )
 }
 createTransaction(): void{
-  console.log(this.profileData);
+  // console.log(this.profileData);
   this.router.navigate(['/transaction', this.profileData], { queryParams: { profileData: JSON.stringify(this.profileData) } });
   
 }
-
+getProfile():void{
+  // console.log(this.profileData);
+  this.router.navigate(['/profile', this.profileData], { queryParams: { profileData: JSON.stringify(this.profileData) } });
+}
 }

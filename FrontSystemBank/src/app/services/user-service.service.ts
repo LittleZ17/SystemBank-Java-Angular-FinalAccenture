@@ -29,4 +29,7 @@ export class UserServiceService {
   postRegister(body: any): Observable<any>{
     return this.http.post<any>(`${this.API_URL}/customer`, body)
   }
+  upldateProfile(body: any): Observable<any>{
+    return this.http.post<any>(`${this.API_URL}/customer`, body)
+  }
 }
