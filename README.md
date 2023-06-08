@@ -12,19 +12,25 @@ Customers: who can consult the balance of his account and can make money transfe
 
 User Types: The system supports three types of users: Admins and Customers.
 
-### Description
+## :paintbrush: Description
 
 This application is a complete system developed with Java and Spring Boot that offers a REST API through two microservices, implements several CRUD (Create, Read, Update, Delete) to manage users, accounts and transfers between clients, as well as the ability to upload files. The application has two types of users: Administrator and Client.
 
 The Administrator has special privileges and can create and delete accounts and users in the system. On the other hand, Clients can have multiple accounts and make money transfers to other clients.
 
-##  CaseDiagram & ClassDiagram
+![Responsive](/assets/responsive.png)
+
+## :paperclips: CaseDiagram & ClassDiagram
 ![CaseD.png](/assets/CaseD.png)
 ------------------------------------------------------------------------
 ![UseD.png](/assets/UseD.png)
 ## :woman_technologist: Technologies Used
 The application is built using the following technologies:
-## Backend:
+
+## :card_file_box: Database
+A MySQL database is used to store the application data. The necessary database schema and sample data are provided.
+![Data Base](/assets/databaseD.png)
+## :round_pushpin: Backend:
 ·Java with Spring framework
 
 ·Spring Boot
@@ -33,20 +39,20 @@ The application is built using the following technologies:
 
 ·Spring MVC
 
-·MySQL database
-
-## :card_file_box: Database
-A MySQL database is used to store the application data. The necessary database schema and sample data are provided.
-
-## Frontend:
+## :round_pushpin: Frontend:
 
 ·Angular
 
-·Css
+.TypeScript
+
+·CSS
 
 ## Complementary:
 
 ### ·Figma : [Mockup](https://www.figma.com/file/e37vRD3ZzoHtEfDHFpC8dj/Z-Bank?type=design&node-id=513%3A2&t=RO29a6NyvQCXuU9s-1)
+
+![Figma](/assets/figmaMockup.png)
+
 
 ### ·Trello : [Work Flow](https://www.figma.com/file/e37vRD3ZzoHtEfDHFpC8dj/Z-Bank?type=design&node-id=513%3A2&t=RO29a6NyvQCXuU9s-1)
 
@@ -69,10 +75,17 @@ Use the provided Postman collection to test the application's functionality.
 ### Frontend:
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
 
-## Author: Zindy Lucio Martinez
-### Linkedin : [Profile](https://www.linkedin.com/in/zindy-lucio-martinez/)
+
+### Linkedin : [Zindy Lucio Martinez](https://www.linkedin.com/in/zindy-lucio-martinez/)
 ### Github : [@LittleZ17](https://github.com/LittleZ17)
-# Happy banking! 
+
+		```
+		
+		Thanks Adrian, David, Jarko !!
+		
+		```
+
+# Happy banking! :wink:
 
 
 
