@@ -31,13 +31,7 @@
         }}
       </p>
     </div>
-    <div>
-      <img
-        src="../../../assets/png/profile-img.png"
-        alt="profile image"
-        class="profile-img"
-      />
-    </div>
+    <app-file-store></app-file-store>
   </section>
   <button class="box-ct btn-edit" (click)="toggleForm()">
     <img src="../../../assets/icon/pencil.svg" alt="Icon plus add" /> EDIT
@@ -174,15 +168,15 @@
       </section>
       <p class="msg-info">Please, confirm your password to update.</p>
       <button type="submit" class="btn-form btn">Create Profile</button>
-      <div class="msg msg-ok box-ct" *ngIf="formSubmitted && successRegister">
+    </form>
+  </div>
+  <div class="msg msg-ok box-ct alert" *ngIf="formSubmitted && successRegister">
         <img src="../../../assets/icon/check-circle.svg" alt="check circle" />
         <p>Success!</p>
         <p>Your information is updated.</p>
       </div>
-      <div class="msg msg-error box-ct msg-e" *ngIf="errorRegister">
+      <div class="msg msg-error box-ct msg-e alert" *ngIf="errorRegister">
         <img src="../../../assets/icon/error-circle.svg" alt="check circle" />
         <p>Please fill in all the required fields.</p>
       </div>
-    </form>
-  </div>
 </div>

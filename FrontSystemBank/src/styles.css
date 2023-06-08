@@ -30,7 +30,6 @@
   padding: 0;
   box-sizing: border-box;
   font-size: 62.5%;
-  /* color: var(--c-black); */
 }
 h6 {
   font-weight: 300;
@@ -141,7 +140,7 @@ button{
   }
 }
 
-/* .imgAnimation{
+.imgAnimation{
     animation: float 3s ease-in-out infinite;
   }
 
@@ -155,4 +154,4 @@ button{
     100% {
       transform: translateY(0);
     }
-  } */
+  }

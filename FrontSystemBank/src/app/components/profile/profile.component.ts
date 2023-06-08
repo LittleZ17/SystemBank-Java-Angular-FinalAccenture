@@ -106,14 +106,14 @@ uploadProfile():void{
   }
   // console.log(updateInfo);
   
-
   this.userRequestService.upldateProfile(this.profileData, updateInfo).subscribe({
     next:(data) => {
       // console.log(data)
+      this.infoCustomer = data;
       this.successRegister = true;
       setTimeout(() => {
         this.router.navigate(['/account-info', this.profileData], { queryParams: { profileData: JSON.stringify(this.profileData) } });
-      }, 1300);        
+      }, 1500);        
     },
     error: (error) => {
       console.error(error)
@@ -121,7 +121,7 @@ uploadProfile():void{
       this.errorRegister = true;
       setTimeout(() => {
         this.errorRegister = false;
-      }, 1800); 
+      }, 2000); 
     }
   })
 }

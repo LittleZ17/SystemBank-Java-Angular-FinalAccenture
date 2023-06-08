@@ -14,6 +14,8 @@ import { TransactionComponent } from './components/transaction/transaction.compo
 import { RegisterComponent } from './components/register/register.component';
 import { LogoutComponent } from './components/logout/logout.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { FileStoreComponent } from './components/file-store/file-store.component';
+import { NotFoundComponent } from './components/not-found/not-found.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +28,8 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
     RegisterComponent,
     LogoutComponent,
     DashboardComponent,
+    FileStoreComponent,
+    NotFoundComponent,
   ],
   imports: [
     BrowserModule,

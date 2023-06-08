@@ -7,6 +7,7 @@ import { AccountComponent } from './components/account/account.component';
 import { TransactionComponent } from './components/transaction/transaction.component';
 import { RegisterComponent } from './components/register/register.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { NotFoundComponent } from './components/not-found/not-found.component';
 
 
 const routes: Routes = [
@@ -37,11 +38,11 @@ const routes: Routes = [
   {
     path: "dashboard",
     component: DashboardComponent,
+  },
+  {
+    path: "**", 
+    component: NotFoundComponent,
   }
-  // {
-  //   path: "**", 
-  //   component: PageNotFoundComponent,
-  // },
 ];
 
 @NgModule({

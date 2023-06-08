@@ -1,0 +1,20 @@
+<div>
+  <button *ngIf="!showForm" class="btn-lev" (click)="toggleForm()">
+    <img src="../../../assets/icon/add.svg" alt="go back" class="user-image" />
+  </button>
+  <div *ngIf="showForm">
+  <img *ngIf="showImage" [src]="infoData" alt="profile image" class="profile-img" />
+  <form
+    [formGroup]="uploadForm"
+    (ngSubmit)="onSubmit()"
+ 
+    class="box-col"
+  >
+    <input
+      type="file"
+      (change)="onFileSelected($event)"
+    />
+    <button type="submit" class="btn-file">Enviar</button>
+  </form>
+</div>
+</div>
