@@ -3,6 +3,11 @@
   overflow-x: hidden;
   position: relative;
 }
+.btn-lev {
+  margin-top: 30px;
+  background-color: transparent;
+  border: none;
+}
 .user-image {
   position: absolute;
   top: 55px;

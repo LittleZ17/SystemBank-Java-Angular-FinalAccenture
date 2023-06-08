@@ -75,7 +75,7 @@ export class RegisterComponent {
         postalCode: this.postalCodeInput.value
       }
     }
-    console.log(newRegister);
+    // console.log(newRegister);
     
 
     this.requestService.postRegister(newRegister).subscribe({

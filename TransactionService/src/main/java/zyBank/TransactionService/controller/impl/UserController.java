@@ -8,6 +8,8 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.server.ResponseStatusException;
+import zyBank.TransactionService.controller.dto.CustomerUpdateDTO;
 import zyBank.TransactionService.controller.dto.UserCredentialsDTO;
 import zyBank.TransactionService.controller.interfaces.IUserController;
 import zyBank.TransactionService.model.User.Admin;
@@ -80,5 +82,18 @@ public class UserController implements IUserController {
     @ResponseStatus(HttpStatus.OK)
     public ResponseEntity<User> login(@RequestBody UserCredentialsDTO userCredentials) {
         return  serviceUser.login(userCredentials);
+    }
+
+    @PutMapping("users/customer/{customerId}")
+    public ResponseEntity<Customer> updateCustomerFields(
+            @PathVariable Integer customerId,
+            @RequestBody CustomerUpdateDTO customerUpdateDTO
+    ) {
+        try {
+            Customer updatedCustomer = serviceUser.updateCustomer(customerId, customerUpdateDTO);
+            return ResponseEntity.ok(updatedCustomer);
+        } catch (ResponseStatusException e) {
+            return ResponseEntity.status(e.getStatusCode()).body(null);
+        }
     }
 }

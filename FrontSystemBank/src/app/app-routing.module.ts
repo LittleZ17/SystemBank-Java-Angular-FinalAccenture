@@ -6,6 +6,7 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { AccountComponent } from './components/account/account.component';
 import { TransactionComponent } from './components/transaction/transaction.component';
 import { RegisterComponent } from './components/register/register.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
 
 
 const routes: Routes = [
@@ -33,6 +34,10 @@ const routes: Routes = [
     path: "profile/:id",
     component: ProfileComponent,
   },
+  {
+    path: "dashboard",
+    component: DashboardComponent,
+  }
   // {
   //   path: "**", 
   //   component: PageNotFoundComponent,

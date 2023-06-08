@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { UserServiceService } from '../../services/user-service.service';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
@@ -8,27 +8,44 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
   templateUrl: './profile.component.html',
   styleUrls: ['./profile.component.css']
 })
-export class ProfileComponent {
+export class ProfileComponent implements OnInit{
   profileData: any;
   infoCustomer: any;
-//Cambiar a false
-  showForm = true;
+
+  showForm = false;
 
   updateForm: FormGroup;
-  emailInput: FormControl;
-  passwordInput: FormControl;
-  // passwordConfirmInput: FormControl;
-  nameInput: FormControl;
-  lastnameInput: FormControl;
-  idNationalInput: FormControl;
-  phoneInput: FormControl;
-  fullStreetInput: FormControl;
-  cityInput: FormControl;
-  postalCodeInput: FormControl;
+  emailInput: FormControl = new FormControl("", [Validators.required, Validators.email]);
+  passwordConfirmInput = new FormControl("", [Validators.required, Validators.minLength(8)]);
+  passwordInput: FormControl = new FormControl("", [Validators.required, Validators.minLength(8)]);
+  nameInput: FormControl = new FormControl("");
+  lastnameInput: FormControl = new FormControl("");
+  idNationalInput: FormControl = new FormControl("");
+  phoneInput: FormControl = new FormControl("", [Validators.required]);
+  fullStreetInput: FormControl = new FormControl("", [Validators.required]);
+  cityInput: FormControl = new FormControl("", [Validators.required]);
+  postalCodeInput: FormControl = new FormControl("", [Validators.required, Validators.minLength(4)]);
+
 
   formSubmitted: boolean = false;
   successRegister: boolean = false;
   errorRegister: boolean= false;
+
+  constructor( private router: Router, private route: ActivatedRoute, private userRequestService: UserServiceService){
+
+    this.updateForm = new FormGroup({
+      email: this.emailInput,
+      password: this.passwordInput,
+      passwordConfirm: this.passwordConfirmInput,
+      name: this.nameInput,
+      lastname: this.lastnameInput,
+      id: this.idNationalInput,
+      phone: this.phoneInput,
+      street: this.fullStreetInput,
+      city: this.cityInput,
+      postal: this.postalCodeInput
+    });
+  }
   
   ngOnInit() {
     this.route.queryParams.subscribe(params => {
@@ -41,38 +58,23 @@ export class ProfileComponent {
       }
     });
   }
-
-  constructor( private router: Router, private route: ActivatedRoute, private userRequestService: UserServiceService){
-    this.emailInput = new FormControl("" ,[Validators.required, Validators.email]);
-    this.passwordInput = new FormControl("", [Validators.required, Validators.minLength(8)]);
-    // this.passwordConfirmInput = new FormControl("", [Validators.required, Validators.minLength(8)]);
-    this.nameInput = new FormControl("");
-    this.lastnameInput = new FormControl("");
-    this.idNationalInput = new FormControl("");
-    this.phoneInput = new FormControl("", [Validators.required]);
-    this.fullStreetInput = new FormControl("", [Validators.required]);
-    this.cityInput = new FormControl("", [Validators.required]);
-    this.postalCodeInput = new FormControl("", [Validators.required, Validators.minLength(4)]);
-    this.updateForm = new FormGroup({
-      email: this.emailInput,
-      password: this.passwordInput,
-      // passwordConfirm: this.passwordConfirmInput,
-      name: this.nameInput,
-      lastname: this.lastnameInput,
-      id: this.idNationalInput,
-      phone: this.phoneInput,
-      street: this.fullStreetInput,
-      city: this.cityInput,
-      postal: this.postalCodeInput
-    })
+  passwordMatchValidator(form: FormGroup) {
+    const password = form.get('password')?.value;
+    const passwordConfirm = form.get('passwordConfirm')?.value;
+    if (password !== passwordConfirm) {
+      form.get('passwordConfirm')?.setErrors({ mismatch: true });
+    } else {
+      form.get('passwordConfirm')?.setErrors(null);
+    }
+    return null;
   }
 
 getInfoCustomer(): void{
   this.userRequestService.getCustomerById(this.profileData).subscribe({
     next:(data) => {
-      console.log(data);
+      // console.log(data);
       this.infoCustomer = data;
-
+      
       this.updateForm.patchValue({
         email: this.infoCustomer.email,
         password: this.infoCustomer.password,
@@ -102,15 +104,15 @@ uploadProfile():void{
       postalCode: this.postalCodeInput.value
     }
   }
-  console.log(updateInfo);
+  // console.log(updateInfo);
   
 
-  this.userRequestService.upldateProfile(updateInfo).subscribe({
+  this.userRequestService.upldateProfile(this.profileData, updateInfo).subscribe({
     next:(data) => {
-      console.log(data)
+      // console.log(data)
       this.successRegister = true;
       setTimeout(() => {
-        this.router.navigate(['/login']);
+        this.router.navigate(['/account-info', this.profileData], { queryParams: { profileData: JSON.stringify(this.profileData) } });
       }, 1300);        
     },
     error: (error) => {
@@ -123,7 +125,7 @@ uploadProfile():void{
     }
   })
 }
-toggleForm() {
+toggleForm(): void {
   this.showForm = !this.showForm;
 }
 
@@ -133,6 +135,10 @@ onSubmit(): void {
   }
   this.formSubmitted = true;
   this.uploadProfile();
+}
+getProfile():void{
+  // console.log(this.profileData);
+  this.router.navigate(['/account-info', this.profileData], { queryParams: { profileData: JSON.stringify(this.profileData) } });
 }
 
 }

@@ -11,8 +11,8 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent {
   profileData!: number;
+  profileEmail!: string;
 
-  // customersList: any;
   loginForm: FormGroup;
   emailInput: FormControl;
   passwordInput: FormControl;
@@ -31,18 +31,6 @@ export class LoginComponent {
     })
   }
 
-// BORRAR ANTES
-  // getCustomers(): void {
-  //   this.requestService.getCustomers().subscribe(
-  //     {
-  //       next: (data) => {
-  //         console.log(data);
-  //         this.customersList = data;       
-  //       }
-  //     }
-  //   )
-  // }
-
   postLogin():void{
     const newLogin: any = {
       email: this.emailInput.value,
@@ -52,10 +40,15 @@ export class LoginComponent {
     this.requestService.postLogin(newLogin).subscribe({
       next:(data) =>{
         // console.log(data.id);
+        this.profileEmail = data.email;
         this.profileData = data.id;
         this.successLogin = true;
         setTimeout(() => {
-          this.router.navigate(['/account-info', this.profileData], { queryParams: { profileData: JSON.stringify(this.profileData) } });
+          if(this.profileEmail.includes("admin")){
+            this.router.navigate(['/dashboard']);
+          }else{
+            this.router.navigate(['/account-info', this.profileData], { queryParams: { profileData: JSON.stringify(this.profileData) } });
+          }
         }, 1300);        
       },
       error: (error) => {

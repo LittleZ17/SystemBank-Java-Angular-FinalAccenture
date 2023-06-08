@@ -15,8 +15,8 @@ export class UserServiceService {
     return this.http.get<any>(`${this.API_URL}`)
   }
 
-  getCustomers(): Observable<any>{
-    return this.http.get<any>(`${this.API_URL}/customer`)
+  getAllCustomers(): Observable<any>{
+    return this.http.get<any>(`${this.API_URL}/customers`)
   }
 
   getCustomerById(id: any): Observable<any>{
@@ -29,7 +29,7 @@ export class UserServiceService {
   postRegister(body: any): Observable<any>{
     return this.http.post<any>(`${this.API_URL}/customer`, body)
   }
-  upldateProfile(body: any): Observable<any>{
-    return this.http.post<any>(`${this.API_URL}/customer`, body)
+  upldateProfile(id: any, body: any): Observable<any>{
+    return this.http.put<any>(`${this.API_URL}/customer/${id}`, body)
   }
 }

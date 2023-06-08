@@ -6,7 +6,9 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import org.springframework.web.server.ResponseStatusException;
+import zyBank.TransactionService.controller.dto.CustomerUpdateDTO;
 import zyBank.TransactionService.controller.dto.UserCredentialsDTO;
+import zyBank.TransactionService.embeddables.Address;
 import zyBank.TransactionService.model.User.Admin;
 import zyBank.TransactionService.model.User.Customer;
 import zyBank.TransactionService.service.interfaces.IServiceUser;
@@ -52,7 +54,8 @@ public class ServiceUser implements IServiceUser {
             return userRepository.save(costumer);
         }
     }
-   public ResponseEntity<User> login(UserCredentialsDTO userCredentials) {
+
+    public ResponseEntity<User> login(UserCredentialsDTO userCredentials) {
         List<User> users = userRepository.findAll();
         for (User user : users) {
             if (user.getEmail().equals(userCredentials.getEmail()) && user.getPassword().equals(userCredentials.getPassword())) {
@@ -60,5 +63,28 @@ public class ServiceUser implements IServiceUser {
             }
         }
         return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(null);
+    }
+
+    public Customer updateCustomer(Integer customerId, CustomerUpdateDTO customerUpdateDTO) {
+        Optional<User> customerOptional = userRepository.findById(customerId);
+        if (customerOptional.isEmpty()) {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Customer not found!");
+        }
+
+        Customer customer = (Customer) customerOptional.get();
+
+        if (customerUpdateDTO.getPhone() != null) {
+            customer.setPhone(customerUpdateDTO.getPhone());
+        }
+        if (customerUpdateDTO.getPassword() != null) {
+            customer.setPassword(customerUpdateDTO.getPassword());
+        }
+        if (customerUpdateDTO.getAddress() != null) {
+            Address address = customerUpdateDTO.getAddress();
+            customer.getHomeAddress().setFullStreet(address.getFullStreet());
+            customer.getHomeAddress().setCity(address.getCity());
+            customer.getHomeAddress().setPostalCode(address.getPostalCode());
+        }
+        return userRepository.save(customer);
     }
 }

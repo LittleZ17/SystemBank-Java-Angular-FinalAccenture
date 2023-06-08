@@ -7,12 +7,15 @@
   --c-black: #212427;
   --c-orange: #ff735c;
   --c-green: #2b503e;
+  --c-red: #711E28;
+
   
   --text-grey: #A6A6A6;
   
   --bg-logo: #dbedf1;
   --bg-green: rgba(180, 211, 193, 0.9);
   --bg-orange: rgba(243, 195, 185, 0.95);
+  --bg-red: #E85566;
 
   --shadow: 0px 4px 18px rgba(158, 168, 189, 0.31);
   --shadow-blue: 0px 4px 20px rgba(77, 166, 186, 0.38);

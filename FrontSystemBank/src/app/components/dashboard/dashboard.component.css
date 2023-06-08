@@ -1,0 +1,114 @@
+.box-dashboard {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    justify-content: space-evenly;
+    width: 100vw;
+  }
+img{
+    width: 20px;
+    height: 20px;
+}
+.box1{
+    width: 80vw;
+}
+.title{
+    width: 70vw;
+    margin-bottom: 20px;
+    margin-top: 50px;
+    
+}
+.box-title{
+    width: 100%;
+    padding: 5%;
+    box-shadow: var(--shadow-blue);
+    border-radius: 10px;
+    overflow: hidden;
+  position: relative;
+    transition: transform 0.3s ease;
+}
+.box-title:hover, .icon:hover{
+    transform: scale(1.1);
+}
+.title-grey{
+    font-size: 1.5rem;
+}
+.subtitle{
+    font-size:2.2rem;
+}
+.col{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 50vh;
+}
+.col-t{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: auto;
+}
+.icon {
+    width: 50px;
+    height: 50px;
+    transition: transform 0.3s ease;
+}
+.sub-box{
+    font-size: 2rem;
+}
+.sub-box{
+    display: flex;
+    font-size: 2rem;
+    flex-direction: column;
+    align-items: center;
+    width: 90%;
+    border: var(--border-input);
+    box-shadow: var(--shadow);
+}
+.sub-box:hover{
+    background-color: var(--bg-logo);
+}
+.sub-box h3{
+    font-size: 1.8rem;
+    font-family: 'Philosopher', sans-serif;
+}
+.sub-box p{
+    font-size: 1.5rem;
+}
+.box2{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content:space-around;
+    margin: 2% 0;
+}
+.account-b{
+    width: 100%;
+    flex-direction: row;
+    justify-content:space-around;
+}
+
+.account-b h6{
+    font-family: "Roboto", sans-serif;
+    font-size: 1.2rem;
+}
+.text{
+    font-family: 'Philosopher', sans-serif;
+    font-size: 1.6rem;
+    color: var(--c-black);
+}
+
+.msg-del{
+    background-color: var(--bg-red);
+    color: var(--c-red);
+}
+
+@media only screen and (min-width: 992px) {
+    .col{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        height: auto;
+    }
+}

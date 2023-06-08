@@ -4,6 +4,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.multipart.MultipartFile;
+import zyBank.TransactionService.controller.dto.CustomerUpdateDTO;
 import zyBank.TransactionService.controller.dto.UserCredentialsDTO;
 import zyBank.TransactionService.model.User.Admin;
 import zyBank.TransactionService.model.User.Customer;
@@ -19,4 +20,5 @@ public interface IServiceUser {
     Admin saveAdmin(Admin admin);
 
     ResponseEntity<User> login(UserCredentialsDTO userCredentials);
+    Customer updateCustomer(Integer customerId, CustomerUpdateDTO customerUpdateDTO);
 }

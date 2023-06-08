@@ -50,6 +50,18 @@ input {
 .img-register {
   display: none;
 }
+.link-signin,
+.link-signin a {
+  font-size: 1.3rem;
+  margin-top: 8%;
+}
+.link-signin a {
+  color: var(--c-blue);
+  text-decoration: none;
+}
+.link-signin a:hover {
+  color: var(--c-orange);
+}
 
 @media only screen and (min-width: 768px) {
   .container {

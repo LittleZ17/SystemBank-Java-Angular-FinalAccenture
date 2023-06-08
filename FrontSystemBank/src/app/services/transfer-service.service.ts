@@ -12,7 +12,7 @@ export class TransferServiceService {
 
   constructor(private http: HttpClient) { }
 
-  getAllTransfer(): Observable<any>{
+  getAllTransfers(): Observable<any>{
     return this.http.get<any>(`${this.API_URL}`)
   }
   

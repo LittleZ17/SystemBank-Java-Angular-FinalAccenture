@@ -1,0 +1,83 @@
+<div
+  class=" box-dashboard"
+  *ngIf="customerList && accountList && transferList"
+>
+  <div class="title">
+    <h6>Dashboard Admin</h6>
+    <h2>Your Dashboard</h2>
+  </div>
+
+  <section class="customers box1 grid">
+    <div class="title  box-title" (click)="toggleList('customer')">
+      <h6 class="title-grey">Dashboard Admin</h6>
+      <h2 class="subtitle">Customers</h2>
+    </div>
+    <div *ngIf="showCList" class="col">
+      <div *ngFor="let customer of customerList" class="box-ct">
+        <div class="sub-box">
+          <div class="box2">
+            <h3>{{ customer.name }} {{ customer.lastname }}</h3>
+            <img
+              src="../../../assets/icon/identification.svg"
+              alt="icon identification"
+            />
+            <p>ID {{ customer.idNational }}</p>
+          </div>
+          <div class="box2">
+            <img src="../../../assets/icon/phone.svg" alt="icon phone" />
+            <p>{{ customer.phone }}</p>
+            <img src="../../../assets/icon/at.svg" alt="icon email" />
+            <p>{{ customer.email }}</p>
+          </div>
+        </div>
+        <img src="../../../assets/icon/trash.svg" alt="trash icon" class="icon">
+      </div>
+    </div>
+  </section>
+
+  <section class="account box1">
+    <div class="title box-title" (click)="toggleList('account')">
+      <h6 class="title-grey">Dashboard Admin</h6>
+      <h2 class="subtitle">Accounts</h2>
+    </div>
+    <div *ngIf="showAList" class="col-t">
+      <div *ngFor="let account of accountList" class="box-ct sub-box account-b">
+        <h3>{{ account.number }}</h3>
+        <div class="box2">
+          <img src="../../../assets/icon/balance.svg" alt="icon email" />
+          <p>{{account.balance.amount}} {{ account.balance.currency }}</p>
+        </div>
+        <img src="../../../assets/icon/trash.svg" alt="trash icon" class="icon" (click)="deleteAccount(account.number)">
+      </div>
+    </div>
+  </section>
+
+  <section class="transfer box1">
+    <div class="title  box-title" (click)="toggleList('transaction')">
+      <h6 class="title-grey">Dashboard Admin</h6>
+      <h2 class="subtitle">Transfer</h2>
+    </div>
+    <div *ngIf="showTList" class="col-t">
+      <div *ngIf="transferList.length > 0; else noTransfers">
+        <div *ngFor="let transfer of transferList" class="box-ct sub-box account-b">
+          <img
+              src="../../../assets/icon/switch-horizontal.svg"
+              alt="icon switch"
+            />
+          <h6><span class="text">{{ transfer.transactionId }}</span></h6>
+          <h6>FROM:   <span class="text">{{ transfer.sourceAccountNumber }}</span></h6>
+          <h6>TO:   <span class="text">{{ transfer.destinationAccountNumber }}</span></h6>
+          <h6><span class="text">{{ transfer.amount.amount }} {{ transfer.amount.currency }}</span></h6>
+        </div>
+      </div>
+      <ng-template #noTransfers>
+        <p>No hay transferencias realizadas.</p>
+      </ng-template>
+    </div>
+  </section>
+  <div class="msg msg-del box-ct" *ngIf="successDelete">
+    <p>Success!</p>
+    <p>Item deleted successfully.</p>
+  </div>
+  <app-logout></app-logout>
+</div>
