@@ -106,7 +106,7 @@ public class TransactionServiceApplication {
 		String phoneNumber;
 		do {
 			phoneNumber = "+34" + faker.numerify("#######");
-		} while (phoneNumber.length() != 10); // Asegurar que el número de teléfono tiene 10 caracteres (incluyendo el código de país)
+		} while (phoneNumber.length() != 10);
 
 		return phoneNumber;
 	}
